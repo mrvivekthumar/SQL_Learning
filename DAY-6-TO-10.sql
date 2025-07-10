@@ -32,7 +32,7 @@ HAVING COUNT(DISTINCT salary) = COUNT(1);  -- Same number of distinct salaries a
 SELECT o.sub_category 
 FROM orders o 
 LEFT JOIN returns r ON o.order_id = r.order_id 
-WHERE return_reason IN ('others','bad quality','wrong item')  -- ✓ Fixed typo: 'quanlity' → 'quality'
+WHERE return_reason IN ('others','bad quality','wrong item')
 GROUP BY o.sub_category 
 HAVING COUNT(DISTINCT r.return_reason) = 3;  -- Must have all 3 distinct reasons
 
